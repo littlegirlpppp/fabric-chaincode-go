@@ -5,12 +5,12 @@ package internal
 
 import (
 	"context"
-	"crypto/tls"
+	tls "github.com/tjfoc/gmtls"
 	"time"
 
 	peerpb "github.com/hyperledger/fabric-protos-go/peer"
+	credentials "github.com/tjfoc/gmtls/gmcredentials"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/keepalive"
 )
 
