@@ -7,8 +7,8 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"github.com/jxu86/gmsm/sm2"
-	tls "github.com/jxu86/gmtls"
+	gmx509 "github.com/littlegirlpppp/gmsm/x509"
+	tls "github.com/littlegirlpppp/gmsm/gmtls"
 	"io/ioutil"
 	"os"
 	"strconv"
@@ -116,17 +116,18 @@ func LoadTLSConfig(isserver bool, key, cert, root []byte) (*tls.Config, error) {
 		return nil, errors.New("failed to parse client key pair")
 	}
 
-	var rootCertPool *sm2.CertPool
+	var rootCertPool *gmx509.CertPool
 	if root != nil {
-		rootCertPool = sm2.NewCertPool()
+		rootCertPool = gmx509.NewCertPool()
 		if ok := rootCertPool.AppendCertsFromPEM(root); !ok {
 			return nil, errors.New("failed to load root cert file")
 		}
 	}
 
 	tlscfg := &tls.Config{
-		MinVersion:   tls.VersionTLS12,
-		Certificates: []tls.Certificate{cccert},
+		GMSupport: &tls.GMSupport{},
+		MinVersion:   tls.VersionGMSSL,
+		Certificates: []tls.Certificate{cccert,cccert},
 	}
 
 	//follow Peer's server default config properties
@@ -139,6 +140,8 @@ func LoadTLSConfig(isserver bool, key, cert, root []byte) (*tls.Config, error) {
 			tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
 			tls.TLS_RSA_WITH_AES_128_GCM_SHA256,
 			tls.TLS_RSA_WITH_AES_256_GCM_SHA384,
+			tls.GMTLS_SM2_WITH_SM4_SM3,
+			tls.GMTLS_ECDHE_SM2_WITH_SM4_SM3,
 		}
 		if rootCertPool != nil {
 			tlscfg.ClientAuth = tls.RequireAndVerifyClientCert

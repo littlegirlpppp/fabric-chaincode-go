@@ -5,11 +5,11 @@ package internal
 
 import (
 	"errors"
-	tls "github.com/jxu86/gmtls"
+	tls "github.com/littlegirlpppp/gmsm/gmtls"
 	"net"
 	"time"
 
-	credentials "github.com/jxu86/gmtls/gmcredentials"
+	credentials "github.com/littlegirlpppp/gmsm/gmtls/gmcredentials"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 )
