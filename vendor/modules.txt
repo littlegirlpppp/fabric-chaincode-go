@@ -8,6 +8,9 @@ github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/empty
 github.com/golang/protobuf/ptypes/timestamp
+# github.com/hashicorp/golang-lru v0.5.4
+github.com/hashicorp/golang-lru
+github.com/hashicorp/golang-lru/simplelru
 # github.com/hyperledger/fabric-protos-go v0.0.0-20201028172056-a3136dde2354
 ## explicit
 github.com/hyperledger/fabric-protos-go/common
@@ -15,7 +18,7 @@ github.com/hyperledger/fabric-protos-go/ledger/queryresult
 github.com/hyperledger/fabric-protos-go/ledger/rwset
 github.com/hyperledger/fabric-protos-go/msp
 github.com/hyperledger/fabric-protos-go/peer
-# github.com/littlegirlpppp/gmsm v0.0.0-20210125031919-ab0c0a65837c
+# github.com/littlegirlpppp/gmsm v0.0.0-20210129065454-c0b82d62a38e
 ## explicit
 github.com/littlegirlpppp/gmsm/gmtls
 github.com/littlegirlpppp/gmsm/gmtls/gmcredentials
@@ -25,6 +28,8 @@ github.com/littlegirlpppp/gmsm/sm4
 github.com/littlegirlpppp/gmsm/x509
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
+# github.com/status-im/keycard-go v0.0.0-20200402102358-957c09536969
+github.com/status-im/keycard-go/hexutils
 # github.com/stretchr/testify v1.6.1
 ## explicit
 github.com/stretchr/testify/assert
